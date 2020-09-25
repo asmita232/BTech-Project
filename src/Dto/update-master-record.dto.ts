@@ -1,7 +1,8 @@
-import { IsIn, IsOptional, IsDate, IsString, IsAlpha, IsNumber, IsAlphanumeric} from 'class-validator'
+import { IsIn, IsOptional, IsDate, IsAlpha, IsNumber, IsAlphanumeric} from 'class-validator'
 import { coeStatusEnum, studentTypeEnum } from "../model/master-student.entity";
 import { genderEnum } from "../model/master-student.entity";
 import { Type } from "class-transformer";
+import { ApiPropertyOptional } from '@nestjs/swagger';
 export class UpdateMasterRecordDto {
 
     @IsOptional()
@@ -9,23 +10,24 @@ export class UpdateMasterRecordDto {
         coeStatusEnum.Approved,
         coeStatusEnum.Studying
     ])
-    coeStatus: coeStatusEnum
+    coeStatus?: coeStatusEnum
 
     @IsOptional()
     @IsAlpha()
-    coeType: string
+    coeType?: string
 
+    @ApiPropertyOptional()
     @IsOptional()
     @IsNumber()
-    providerStudentID: number
+    providerStudentID?: number
 
     @IsOptional()
     @IsAlpha()
-    firstName: string
+    firstName?: string
 
     @IsOptional()
     @IsAlpha()
-    familyName: string
+    familyName?: string
 
     @IsOptional()
     @IsIn([
@@ -33,54 +35,54 @@ export class UpdateMasterRecordDto {
         genderEnum.Male,
         genderEnum.Other
     ])
-    gender: genderEnum
+    gender?: genderEnum
 
     @IsOptional()
     @IsDate()
     @Type(() => Date)
-    dateOfBirth: Date
+    dateOfBirth?: Date
 
     @IsOptional()
     @IsAlpha()
-    nationality: string
+    nationality?: string
 
     @IsOptional()
     @IsAlpha()
-    courseName: string;
+    courseName?: string;
 
     @IsOptional()
     @Type(() => Date)
-    proposedStartDate: Date;
+    proposedStartDate?: Date;
 
     @IsOptional()
     @Type(() => Date)
-    proposedEndDate: Date;
+    proposedEndDate?: Date;
 
     @IsOptional()
     @Type(() => Date)
-    visaEffectiveDate: Date;
+    visaEffectiveDate?: Date;
 
     @IsOptional()
     @IsAlphanumeric()
-    enrolmentComments: string;
+    enrolmentComments?: string;
 
     @IsOptional()
     @IsAlphanumeric()
-    locationName: string;
+    locationName?: string;
 
     @IsOptional()
     @IsIn([
         studentTypeEnum.Commencing
     ])
-    studentType: studentTypeEnum;
+    studentType?: studentTypeEnum;
 
     @IsOptional()
     @Type(() => Date)
-    lastChangedDateTime: Date;
+    lastChangedDateTime?: Date;
     
 
     @IsOptional()
     @Type(() => Date)
-    createDateTime: Date;
+    createDateTime?: Date;
 
 }
