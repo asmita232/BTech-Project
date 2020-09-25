@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsIn, IsOptional, IsDate, IsAlpha, NotContains, IsUUID, IsString, IsNumber} from 'class-validator'
+import { IsNotEmpty, IsIn, IsOptional, IsDate, IsAlpha, IsUUID, IsString, IsNumber} from 'class-validator'
 import { coeStatusEnum, studentTypeEnum } from "../model/master-student.entity";
 import { genderEnum } from "../model/master-student.entity";
 import { Type } from "class-transformer";
@@ -118,7 +118,7 @@ export class CreateMasterRecordDto {
     })
     @IsOptional()
     @IsString()
-    enrolmentComments: string;
+    enrolmentComments?: string;
 
     @ApiProperty({
         type: String,
